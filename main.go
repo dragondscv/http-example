@@ -27,6 +27,8 @@ func requestHandler(w http.ResponseWriter, r *http.Request) {
 		zap.String("requestID", requestID),
 	)
 
+	reqLogger.Info("Incoming request")
+
 	// Define a context with a timeout of 5 seconds
 	ctx, cancel := context.WithTimeout(r.Context(), 5*time.Second)
 	defer cancel()
